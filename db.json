@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Jan Kowalski",
+      "age": 28
+    },
+    {
+      "id": 2,
+      "name": "Aleksandra Nowak",
+      "age": 42
+    },
+    {
+      "id": 3,
+      "name": "Piotr Michalski",
+      "age": 51
+    },
+    {
+      "id": 4,
+      "name": "Aleksandra Wojciechowska",
+      "age": 35
+    }
+  ]
+}
