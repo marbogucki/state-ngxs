@@ -15,4 +15,8 @@ export class UsersService {
   fetchUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${this.urlApi}/users`);
   }
+
+  addUser(user: Partial<User>): Observable<User> {
+    return this.http.post<User>(`${this.urlApi}/users`, user);
+  }
 }

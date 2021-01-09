@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { catchError, tap } from 'rxjs/operators';
 import { User } from '../models/User';
-import { FetchUsers, FetchUsersSuccess, FetchUsersFailure } from './users.actions';
+import { FetchUsers, FetchUsersSuccess, FetchUsersFailure, AddUser, AddUserSuccess, AddUserFailure } from './users.actions';
 import { UsersService } from './users.service';
+import { insertItem, patch } from '@ngxs/store/operators';
 
 interface UsersStateModel {
   users: User[];
@@ -64,6 +65,37 @@ export class UsersState {
     { payload: { error } }: FetchUsersFailure
   ) {
     patchState({ loading: false, users: [], error });
+  }
+
+  @Action(AddUser)
+  AddUser(
+    ctx: StateContext<UsersStateModel>,
+    { payload: { user } }: AddUser
+  ) {
+    this.usersService.addUser(user).pipe(
+      tap((user: User) => ctx.dispatch(new AddUserSuccess({ user }))),
+      catchError((error: unknown) => ctx.dispatch(new AddUserFailure({ error })))
+    ).subscribe();
+  }
+
+  @Action(AddUserSuccess)
+  AddUserSuccess(
+    { setState }: StateContext<UsersStateModel>,
+    { payload: { user } }: AddUserSuccess
+  ) {
+    setState(
+      patch({
+        users: insertItem<User>(user)
+      })
+    )
+  }
+
+  @Action(AddUserFailure)
+  AddUserFailure(
+    { patchState }: StateContext<UsersStateModel>,
+    { payload: { error } }: AddUserFailure
+  ) {
+    patchState({ error });
   }
 }
 
