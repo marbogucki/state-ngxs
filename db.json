@@ -2,22 +2,26 @@
   "users": [
     {
       "id": 1,
-      "name": "Jan Kowalski",
+      "name": "Jan",
+      "surname": "Kowalski",
       "age": 28
     },
     {
       "id": 2,
-      "name": "Aleksandra Nowak",
+      "name": "Aleksandra",
+      "surname": "Nowak",
       "age": 42
     },
     {
       "id": 3,
-      "name": "Piotr Michalski",
+      "name": "Piotr",
+      "surname": "Michalski",
       "age": 51
     },
     {
       "id": 4,
-      "name": "Aleksandra Wojciechowska",
+      "name": "Aleksandra",
+      "surname": "Wojciechowska",
       "age": 35
     }
   ]

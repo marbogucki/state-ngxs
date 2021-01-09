@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "~11.0.6",
     "@angular/router": "~11.0.6",
     "@ngxs/store": "^3.6.2-dev.master-eaa5d86",
+    "bootstrap": "^4.5.3",
     "concurrently": "^5.3.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

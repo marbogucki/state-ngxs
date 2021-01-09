@@ -21,7 +21,6 @@ interface UsersStateModel {
 })
 @Injectable()
 export class UsersState {
-
   @Selector()
   static users(state: UsersStateModel) {
     return state.users;
@@ -36,7 +35,7 @@ export class UsersState {
   static error({ error }: UsersStateModel) {
     return error;
   }
-
+  
   constructor(private usersService: UsersService) {}
 
   @Action(FetchUsers)
@@ -67,3 +66,6 @@ export class UsersState {
     patchState({ loading: false, users: [], error });
   }
 }
+
+
+

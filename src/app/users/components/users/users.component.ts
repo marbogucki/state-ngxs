@@ -19,10 +19,7 @@ export class UsersComponent implements OnInit {
   constructor(private store: Store) { }
 
   ngOnInit(): void {
-    this.fetchUsers();
-  }
-
-  private fetchUsers(): void {
     this.store.dispatch(new FetchUsers());
   }
 }
+

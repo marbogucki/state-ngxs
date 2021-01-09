@@ -19,7 +19,7 @@ import { environment } from 'src/environments/environment';
     NgxsModule.forRoot([], {
       developmentMode: !environment.production
     }),
-    NgxsReduxDevtoolsPluginModule .forRoot({
+    NgxsReduxDevtoolsPluginModule.forRoot({
       name: 'NGXS App'
     }),
     AppRoutingModule,
