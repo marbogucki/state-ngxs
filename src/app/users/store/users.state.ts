@@ -69,12 +69,12 @@ export class UsersState {
 
   @Action(AddUser)
   AddUser(
-    ctx: StateContext<UsersStateModel>,
+    { dispatch }: StateContext<UsersStateModel>,
     { payload: { user } }: AddUser
   ) {
     this.usersService.addUser(user).pipe(
-      tap((user: User) => ctx.dispatch(new AddUserSuccess({ user }))),
-      catchError((error: unknown) => ctx.dispatch(new AddUserFailure({ error })))
+      tap((user: User) => dispatch(new AddUserSuccess({ user }))),
+      catchError((error: unknown) => dispatch(new AddUserFailure({ error })))
     ).subscribe();
   }
 
