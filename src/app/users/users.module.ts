@@ -18,7 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    NgxsModule.forRoot([UsersState]),
+    NgxsModule.forFeature([UsersState]),
     UsersRoutingModule,
   ]
 })
